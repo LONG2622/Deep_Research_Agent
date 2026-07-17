@@ -1,0 +1,8 @@
+python-dotenv
+requests
+beautifulsoup4
+openai
+tavily-python
+streamlit
+pdfplumber
+structlog
