@@ -34,7 +34,7 @@ class Config:
     @classmethod
     def validate(cls) -> bool:
         """验证配置是否完整"""
-        required_keys = ["LLM_API_KEY", "TAVILY_API_KEY"]
+        required_keys = ["LLM_API_KEY"]
         
         missing_keys = [key for key in required_keys if not getattr(cls, key)]
         
@@ -42,6 +42,9 @@ class Config:
             print(f"缺少必要的配置项: {', '.join(missing_keys)}")
             print("请复制 .env.example 为 .env 并填写相关配置")
             return False
+        
+        if not cls.TAVILY_API_KEY:
+            print("警告: 未配置 Tavily 搜索 API，搜索功能将不可用")
         
         return True
 
