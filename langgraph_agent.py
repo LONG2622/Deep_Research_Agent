@@ -48,7 +48,7 @@ class ResearchNodes:
             response = self.llm_client.chat.completions.create(
                 model=model or config.LLM_MODEL,
                 messages=messages,
-                temperature=0.7,
+                temperature=0.9,
                 max_tokens=max_tokens
             )
             return response.choices[0].message.content.strip()
